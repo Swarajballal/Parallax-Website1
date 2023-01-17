@@ -1,0 +1,120 @@
+
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+}
+
+#wrapper
+{
+    height: 100vh;
+    overflow-x: hidden;   /*to stop the overflow of background banner image */
+    overflow-y: auto;    /*to scroll in Y direction */
+    perspective: 10px;   /*for depth in images on Z axis*/
+}
+
+.container
+{
+    position: relative;  /*because the bg and fg image needs a non static parent(or nearest ancestor) hence conatiner will be relative and bg and fg absolute*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;  /*to mention explicitly that behavhiour should be 3D by default is 2D for parallax effect distance*/
+    height: 100%;
+    z-index: -1;  /*which defines which image should be on top of which image -1 means at bottom positive value on top */ 
+}
+
+.background
+{
+    transform: translateZ(-40px) scale(5);  /*to push away image from eyesight*/ /*to increase the size of image not the height and width (zooming on the pushed back image) always right in short hand include values of Ztranslate and scale in one line  */
+}
+
+.foreground
+{
+    transform: translateZ(-20px) scale(3);  /*to push away image from eyesight*/ /*to increase the size of image not the height and width (zooming on the pushed back image) always right in short hand include values of Ztranslate and scale in one line  */
+}
+
+.background, .foreground
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;      /*fitting image or video in container or div */
+}
+
+h1{
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    font-size: 10rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: translateX(-50%);
+    letter-spacing: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+section
+{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading
+{
+    font-size:  5rem;
+    padding: 0 10rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.text
+{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.bg
+{
+    position: relative;  /* To make the text description of biking paragliding surfing overlap on backrgound image so as per nearest ancestor this needs to be positoned relative so that text is absolute*/
+    width: 100%; 
+    background-attachment: fixed; /* to fix the images on background  w.r.t View port or display*/
+    height: 500px;
+    background-size: cover;   /*works same as object fit covers the whole parent element or same as the size of the parent element*/
+    background-position: center;  /*makes image centered or the main content of the image centered*/
+
+}
+
+.desc
+{
+    position: absolute;  /*since the background image is set relative*/
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.bg1
+{
+    background-image: url(sport-1.jpg);
+}
+
+.bg2
+{
+    background-image: url(sport-2.jpg);
+}
+
+.bg3
+{
+    background-image: url(sport-3.jpg);
+}
+
